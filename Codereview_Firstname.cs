@@ -1,39 +1,85 @@
-
-public class CodeReview 
+namespace ConsoleApp1
 {
- public int Parse(object o)
+    class Program
     {
-        try 
+        static void Main(string[] args)
         {
-            return int.Parse(o.ToString());
-            }
-            catch()
+            
+           object o = 123;
+            string[] s = { "hello ", "and ", "welcome ", "to ",
+                        "this ", "demo! " };
+            string[] a = null;
+            var CodeReview = new CodeReview();
+            // CodeReview.Parse(o);
+            
+            CodeReview.Concat(s);
+            Console.ReadKey();
+        }
+        
+    }
+
+    class CodeReview
+    {
+        public int Parse(object o)
+
+        {
+            
+            
+
+            if (o != null )
             {
-                return 0;
+                string a = o.ToString();
+                int num;
+
+                if (int.TryParse(a, out num))
+                {
+                    Console.WriteLine(o);
+                    return int.Parse(o.ToString());
+                    
                 }
-     }
-     
-     public string Concat(string[] lines)
+                else
+                {
+                    Console.WriteLine("0");
+                    return 0;
+                    
+                }
 
-{
-
-
-
-if(lines == null) 
-{
-return string.Empty;
-}
-string result;
-for(int i = 0; i < lines.Length; i++)
-
-{
-
-result += lines[i];
-
-}
+            }
+            else
+            {
+                
+                Console.WriteLine("0");
+                return 0;
+            }
+            
+        }
 
 
-return result;
+        public string Concat(string[] lines)
 
-}
+        {
+
+            if (lines == null)
+            {
+                return null;
+            }
+            string result = string.Empty;
+                //string result;
+            
+                for (int i = 0; i < lines.Length; i++)
+
+                {
+
+                    result += lines[i];
+
+                }
+                Console.WriteLine(result);
+                return result;
+            
+            
+            
+
+        }
+    }
+
 }
